@@ -8,7 +8,7 @@ namespace BankKlart
 {
     internal partial class MyBank
     {
-        public void adminInlogg()
+        void adminInlogg()
         {
             bool gameOver = false;
             int num = 0;
@@ -16,7 +16,7 @@ namespace BankKlart
             {
                 Console.Write("Användarnamn Admin : ");  //användarnamn: admin och lösen: admin
                 Inlogg = Console.ReadLine().ToLower(); // ToLower = code that allows one to use lowercase and uppercase letters
-                Console.Write("Password Admin : ");
+                Console.Write("Lösenord Admin : ");
                 Pass = Console.ReadLine().ToLower();
                 num++;
                 if (Inlogg == "admin" && Pass == "admin")
@@ -48,7 +48,7 @@ namespace BankKlart
                 }
             }
         }
-        public void admin()
+        void admin()
         {
             while (true)
             {
@@ -75,8 +75,9 @@ namespace BankKlart
             }
 
         }
-        public void addUser()
+        void addUser()
         {
+            Console.Clear();
             Console.WriteLine("");
             try
             {
@@ -96,11 +97,13 @@ namespace BankKlart
                 Console.WriteLine("Fel typ av inmatning använd siffror\nTryck enter");
                 Console.ReadKey();
             }
+            
 
         }
-        public void checkUser()
+        void checkUser()
         {
             Console.Clear();
+            Console.WriteLine("\n");
             Console.WriteLine("Här kommer alla användare");
             Console.WriteLine("------------------");
             foreach (var item in userList)

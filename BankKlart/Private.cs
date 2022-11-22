@@ -13,24 +13,24 @@ namespace BankKlart
         string pass;
 
         Random randomAc = new Random(); // randomizes bank account number in method addAccount()
-        public int number3;
+        int number3;
 
-        public List<string> userList = new List<string>();
-        public List<string> passList = new List<string>();
-        public List<int> bankList = new List<int>();
+        List<string> userList = new List<string>();
+        List<string> passList = new List<string>();
+        List<int> bankList = new List<int>();
 
-        public string Pass
+        string Pass
         {
             get => pass;
             set => pass = value;
         }
-        public string Inlogg
+        string Inlogg
         {
             get => inlogg;
             set => inlogg = value;
         }
 
-        public void customerinlog()
+        void customerinlog()
         {
             bool check = false;
             int num = 0;
@@ -38,7 +38,7 @@ namespace BankKlart
             {
                 Console.Write("Användarnamn privatperson : ");
                 Inlogg = Console.ReadLine();
-                Console.Write("Password privatkund : ");
+                Console.Write("Lösenord privatkund : ");
                 Pass = Console.ReadLine();
                 num++;
 
@@ -76,7 +76,7 @@ namespace BankKlart
                 }
             }
         }
-        public void usermeny()
+        void usermeny()
         {
             while (true)
             {
@@ -93,11 +93,11 @@ namespace BankKlart
                 }
                 else if (adminInput == 2)
                 {
-                    valuta();
+                    currency();
                 }
                 else if (adminInput == 3)
                 {
-                    banksaldo();
+                    bankBalance();
                 }
                 else if (adminInput == 4)
                 {
@@ -107,12 +107,12 @@ namespace BankKlart
             }
 
         }
-        public void banksaldo()
+        void bankBalance()
         {
+            Console.Clear();
             Random random = new Random();
 
             Console.WriteLine("\n");
-            Console.WriteLine("-----------------------------------------------");
             Console.WriteLine("Lista över dina kontonummer");
             Console.WriteLine("-----------------------------------------------");
             foreach (var item1 in bankList)
@@ -121,12 +121,13 @@ namespace BankKlart
                 Console.WriteLine("Kontonummer:" + item1 + ",  Banksaldo:" + (random.Next(0, 1000000)) + "kr");
                 Console.WriteLine("-----------------------------------------------");
             }
-
+            Console.WriteLine("Tryck Enter för att återvända till menyn");
             Console.ReadKey();
             return;
         }
-        public void valuta()
+        void currency()
         {
+            Console.Clear();
             Console.WriteLine("");
             Console.WriteLine("----------------------------");
             Console.WriteLine("Euro : 10.82 skr\n" +
@@ -135,21 +136,23 @@ namespace BankKlart
                               "NOK : 1.05 skr\n" +
                               "JPY : 7.49 skr");
             Console.WriteLine("----------------------------");
-
+            Console.WriteLine("Tryck Enter för att återvända till menyn");
             Console.ReadKey();
 
         }
 
-        public void addAccount()
+        void addAccount()
         {
             Console.Clear();
             number3 = randomAc.Next(1111111, 9999999);
-
+            Console.WriteLine("\n");
             Console.WriteLine("Vill du skapa ett nytt bankkonto tryck enter.");
             Console.WriteLine("--------------------------------------------");
             Console.ReadKey();
             Console.WriteLine("Ditt nya kontonummer är : " + number3);
             bankList.Add(number3);
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Tryck Enter för att återvända till menyn");
 
             Console.ReadKey();
         }

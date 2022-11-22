@@ -8,7 +8,7 @@ namespace BankKlart
 {
     internal partial class MyBank
     {
-
+        
         public void start()
         {
 
@@ -48,7 +48,7 @@ namespace BankKlart
                 }
             }
         }
-        public int checkNr()
+        int checkNr()
         {
             int nr;
             while (!int.TryParse(Console.ReadLine(), out nr))
